@@ -147,7 +147,16 @@ trait BaseIntegrationSpec
           aResponse()
             .withStatus(status)
             .withHeader("Content-Type", "application/json")
-            .withBody(Json.obj("reportingWindowOpen" -> open).toString())
+            .withBody(
+              Json
+                .obj(
+                  "reportingWindowOpen"  -> open,
+                  "reportingWindowStart" -> "2026-06-06T00:00:00Z",
+                  "reportingWindowEnd"   -> "2026-06-19T23:59:59Z",
+                  "resolvedAt"           -> "2026-06-12T00:00:00Z"
+                )
+                .toString()
+            )
         )
     )
 
